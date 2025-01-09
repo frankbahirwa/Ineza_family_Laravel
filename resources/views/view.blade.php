@@ -50,7 +50,7 @@
        </div>
 
         <div class="text-center">
-            <a href="{{ route('participants.index') }}" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-20">Back to List</a>
+            <a href="{{ route('participants.index') }}" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-20">Back</a>
 
         </div>
 

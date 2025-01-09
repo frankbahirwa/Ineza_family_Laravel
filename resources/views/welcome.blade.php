@@ -10,9 +10,39 @@
         *::-webkit-scrollbar {
             display: none;
         }
+
+        .video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Push video to the back */
+}
+
+#background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover; /* Ensures the video fills the viewport */
+}
     </style>
 </head>
 <body class="bg-white">
+
+<div class="video-background">
+    <video autoplay muted loop id="background-video">
+      <source src="vids/anim.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
 <div class="header bg-black fixed w-full text-white">
        <nav class="w-full px-5 py-5 text-white">
