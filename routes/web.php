@@ -8,7 +8,8 @@ Route::post('/store', [ParticipantsController::class, 'store'])->name('participa
 Route::get('/show/{id}', [ParticipantsController::class, 'show'])->name('participants.show');
 Route::put('/updates/{id}',[ParticipantsController::class, 'update'])->name('participants.update');
 Route::get('/update/{id}', [ParticipantsController::class, 'edit'])->name('participants.edit');
-Route::DELETE('/destroy/{id}' , [ParticipantsController::class , 'destroy'])->name('participants.destroy');
+Route::DELETE('/destroy/{id}', [ParticipantsController::class, 'destroy'])->name('participants.destroy');
+
 
 Route::get('/', function () {
     return view('Welcome');

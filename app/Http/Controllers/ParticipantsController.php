@@ -120,14 +120,12 @@ class ParticipantsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Participants $id)
-
+    public function destroy($id)
     {
-        //guiba
-        $deletable = participants::findorfail($id);
+        $deletable = Participants::findOrFail($id);
         $deletable->delete();
-
+    
         return redirect()->route('participants.index');
-
     }
+    
 }

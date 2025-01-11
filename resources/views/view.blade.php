@@ -60,7 +60,12 @@
 
         <div class="text-center">
             <a href="{{ route('participants.edit' , $participants->id) }}"><button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Upadte Member</button></a>
-            <a href="{{route('participants.destroy' , $participants->id)}}"><button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Delete Member</button></a>
+            <form action="{{ route('participants.destroy', $participants->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this participant?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Delete Member</button>
+            </form>
+            
             
         </div>
     </div>
