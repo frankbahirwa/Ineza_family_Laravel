@@ -15,11 +15,11 @@
               <span class="hidden lg:block md:hidden mt-3 ">Ineza-Family</span>
             </div>
          <div class="flex gap-5 mt-1">
-            <li style="text-decoration:underline;text-decoration-thickness:5px;text-decoration-color:lightgreen;" class="animate-pulse">Members</li>
+            {{-- <li style="text-decoration:underline;text-decoration-thickness:5px;text-decoration-color:lightgreen;" class="animate-pulse">Members</li> --}}
            
          </div>
         <div class="dark">
-            <img src="pics/dark.png" alt="" class="cursor-pointer mt-2 w-10 h-5 rounded-tl-full rounded-br-full rounded-bl-full">
+            {{-- <img src="pics/dark.png" alt="" class="cursor-pointer mt-2 w-10 h-5 rounded-tl-full rounded-br-full rounded-bl-full"> --}}
         </div>
         </ul>
     </nav>
@@ -61,7 +61,7 @@
         @endif -->
       </div>
       <div class="text-center">
-        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Update Member</button>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Update Member</button>
       </div>
     </form>
 </div>

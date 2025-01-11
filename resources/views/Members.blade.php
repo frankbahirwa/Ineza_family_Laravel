@@ -14,63 +14,52 @@
         }
     </style>
 </head>
-<body>
-   <div class="header bg-black fixed w-full text-white">
+<body class="select-none">
+   <div class="header bg-black top-0 fixed w-full text-white">
        <nav class="w-full px-5 py-5 text-white">
            <ul class="flex justify-between">
                <div class="logos flex gap-5 rounded-br-3xl">
                    <img src="pics/logos.png" alt="not displayed" class="w-14 h-14 rounded-tl-full rounded-br-full rounded-bl-full animate-bounce">
-                   <span class="hidden lg:block md:hidden mt-3">Ineza-Family</span>
+                   <span class="hidden lg:block md:hidden mt-2 text-2xl">Ineza-Family</span>
                </div>
                <div class="flex gap-5 mt-1">
-                   <li style="text-decoration:underline;text-decoration-thickness:5px;text-decoration-color:lightgreen;" class="animate-pulse">Members</li>
+                   {{-- <li style="text-decoration:underline;text-decoration-thickness:5px;text-decoration-color:lightgreen;" class="animate-pulse">Members</li> --}}
                </div>
                <div class="dark">
-                   <img src="pics/dark.png" alt="" class="cursor-pointer mt-2 w-10 h-5 rounded-tl-full rounded-br-full rounded-bl-full">
+                   {{-- <img src="pics/dark.png" alt="" class="cursor-pointer mt-2 w-10 h-5 rounded-tl-full rounded-br-full rounded-bl-full"> --}}
                </div>
            </ul>
        </nav>
-   </div>
+    </div>
 
-<div class="users w-full lg:w-9/12 absolute mt-40 p-3 bg-gray-200 rounded-lg shadow-md lg:ml-52 overflow-x-auto">
-       <div class="plus bg-black text-white p-1 rounded-lg w-10 h-10 text-center ml-1 mb-4">
-           <a href="/create">+</a>
-       </div>
-       <div class="designed shadow-lg p-1 rounded-lg">
-           <table class="min-w-full bg-white rounded-lg overflow-hidden">
-               <thead>
-                   <tr class="bg-gray-800 text-white">
-                       <th class="px-4 py-2">#</th>
-                       <th class="px-4 py-2">ID</th>
-                       <th class="px-4 py-2">F-Name</th>
-                       <th class="px-4 py-2">L-Name</th>
-                       <th class="px-4 py-2">Gender</th>
-                       <th class="px-4 py-2">More</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   @foreach ($participants as $index => $participant)
-                   <tr class="text-center border-b">
-                       <td class="px-4 py-2">#</td>
-                       <td class="px-4 py-2">{{ $participant->id }}</td>
-                       <td class="px-4 py-2">{{ $participant->Fname }}</td>
-                       <td class="px-4 py-2">{{ $participant->Lname }}</td>
-                       <td class="px-4 py-2">{{ $participant->Gender }}</td>
-                       <td class="px-4 py-2">
-                           <a href="{{ route('participants.show' , $participant->id) }}"><button id="view" class="border border-green-500 rounded-lg p-1">View</button></a>
-                       </td>
-                   </tr>
-                   @endforeach
-               </tbody>
-           </table>
-           @if ($participants->isEmpty())
-           <p class="text-center mt-4">No participants found.</p>
-           @endif
-       </div>
-   </div>
+    <div class="add bg-green-500 p-4 mt-28 ml-5 rounded-full w-16 right-2 h-16 text-center fixed top-0">
+        <a href="{{route('participants.create')}}" class="text-2xl text-white">+</a>
+    </div>
 
-   <div class="block lg:hidden footer p-5 fixed bottom-0 w-full bg-black text-white">
+<div class="flex flex-wrap gap-5 w-full justify-center mt-32 lg:mt-40 mb-20">
+    @foreach ($participants as $participant)
+    <div class="max-w-lg w-full md:w-80 lg:w-96 rounded-lg overflow-hidden shadow-2xl bg-white m-4">
+        <p class="text-center text-xl font-bold bg-gray-300 capitalize">{{$participant->Fname}}'s Details</p>
+        <img class="w-40 h-40 border-8 border-gray-700 rounded-full mx-auto mt-4" src="{{ asset('storage/' . $participant->profile_picture) }}" alt="Profile Image">
+        <div class="px-2 py-2 text-center bg-gray-300 rounded-lg m-2">
+            <div class="font-bold text-2xl mb-2 bg-gray-800 rounded-lg p-5 text-white">
+                {{ $participant->Fname }} {{ $participant->Lname }}
+            <p class="text-gray-200 text-base">Gender: {{ $participant->Gender }}</p>
+            </div>
+
+        </div>
+        <br>
+        <button class="text-center bg-green-500 px-5 text-white py-1 rounded-tr-lg"><a href="{{route('participants.show' , $participant->id)}}">More</a></button>
+    </div>
+    @endforeach
+    
+    @if ($participants->isEmpty())
+        <p class="text-center mt-4">No participants found.</p>
+    @endif
+</div>
+
+<div class="block lg:hidden footer p-5 fixed bottom-0 w-full bg-black text-white">
        <p class="text-center">Ineza-Family &copy; 2025 All rights reserved</p>
-   </div>
+</div>
 </body>
 </html>
